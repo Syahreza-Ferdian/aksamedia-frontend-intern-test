@@ -36,8 +36,8 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="bg-white dark:bg-gray-800 shadow-md pb-5 px-20 flex justify-between items-center pt-10">
-                <div className="text-lg font-semibold text-gray-800 dark:text-white">
+            <nav className="bg-white dark:bg-gray-800 shadow-md pb-5 px-4 sm:px-20 flex justify-between items-center pt-10">
+                <div className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white truncate">
                     Employee Management App
                 </div>
 
@@ -61,7 +61,7 @@ const Navbar = () => {
                     {/* User Dropdown */}
                     <div className="relative inline-block text-left">
                         <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="flex items-center space-x-2 focus:outline-none">
-                            <span className="text-gray-800 dark:text-white">{user.name}</span>
+                            <span className="hidden sm:block text-gray-800 dark:text-white truncate">{user.name}</span>
                             <svg className={`w-5 h-5 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M5.293 7.707a1 1 0 011.414 0L10 11.586l3.293-3.879a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                             </svg>

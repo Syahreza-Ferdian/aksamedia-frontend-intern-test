@@ -116,9 +116,9 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="dark:bg-gray-800 bg-white dark:text-white text-black p-20 min-h-screen">
-            <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">Employee Dashboard</h1>
+        <div className="dark:bg-gray-800 bg-white dark:text-white text-black px-4 py-6 sm:px-6 lg:px-20 min-h-screen">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-4 sm:space-y-0">
+                <h1 className="text-xl sm:text-2xl font-bold">Employee Dashboard</h1>
                 <button onClick={handleAddEmployee} className="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">
                     Add Employee
                 </button>
@@ -132,42 +132,44 @@ const Dashboard = () => {
                 className="mb-4 w-full px-4 py-2 border rounded shadow-sm focus:ring focus:ring-blue-300 dark:bg-gray-800"
             />
 
-            <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                    <tr className="bg-gray-100 dark:bg-gray-800">
-                        <th className="border border-gray-300 px-4 py-2">Name</th>
-                        <th className="border border-gray-300 px-4 py-2">Phone</th>
-                        <th className="border border-gray-300 px-4 py-2">Division</th>
-                        <th className="border border-gray-300 px-4 py-2">Position</th>
-                        <th className="border border-gray-300 px-4 py-2">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {paginatedEmployees.map((employee) => (
-                        <tr key={employee.id}>
-                            <td className="border border-gray-300 px-4 py-2">{employee.nama}</td>
-                            <td className="border border-gray-300 px-4 py-2">{employee.nomorTelepon}</td>
-                            <td className="border border-gray-300 px-4 py-2">{employee.divisi}</td>
-                            <td className="border border-gray-300 px-4 py-2">{employee.position}</td>
-                            <td className="border border-gray-300 px-4 py-2">
-                                <button onClick={() => handleEditEmployee(employee)} className="bg-yellow-500 text-white px-3 py-1 rounded shadow hover:bg-yellow-600 mr-2">
-                                    Edit
-                                </button>
-                                <button onClick={() => handleDeleteEmployee(employee.id)} className="bg-red-500 text-white px-3 py-1 rounded shadow hover:bg-red-600">
-                                    Delete
-                                </button>
-                            </td>
+            <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr className="bg-gray-100 dark:bg-gray-800">
+                            <th className="border border-gray-300 px-4 py-2">Name</th>
+                            <th className="border border-gray-300 px-4 py-2">Phone</th>
+                            <th className="border border-gray-300 px-4 py-2">Division</th>
+                            <th className="border border-gray-300 px-4 py-2">Position</th>
+                            <th className="border border-gray-300 px-4 py-2">Actions</th>
                         </tr>
-                    ))}
-                    {paginatedEmployees.length === 0 && (
-                        <tr>
-                            <td colSpan="5" className="text-center py-4 text-gray-500 font-medium">
-                                No employees found.
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {paginatedEmployees.map((employee) => (
+                            <tr key={employee.id}>
+                                <td className="border border-gray-300 px-4 py-2">{employee.nama}</td>
+                                <td className="border border-gray-300 px-4 py-2">{employee.nomorTelepon}</td>
+                                <td className="border border-gray-300 px-4 py-2">{employee.divisi}</td>
+                                <td className="border border-gray-300 px-4 py-2">{employee.position}</td>
+                                <td className="border border-gray-300 px-4 py-2">
+                                    <button onClick={() => handleEditEmployee(employee)} className="bg-yellow-500 text-white px-3 py-1 rounded shadow hover:bg-yellow-600 mr-2 mb-2 mt-2">
+                                        Edit
+                                    </button>
+                                    <button onClick={() => handleDeleteEmployee(employee.id)} className="bg-red-500 text-white px-3 py-1 rounded shadow hover:bg-red-600 mr-2 mb-2">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                        {paginatedEmployees.length === 0 && (
+                            <tr>
+                                <td colSpan="5" className="text-center py-4 text-gray-500 font-medium">
+                                    No employees found.
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
 
             <div className="mt-4 flex justify-between items-center">
                 <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 disabled:opacity-50">

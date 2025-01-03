@@ -19,8 +19,8 @@ const ModalTemplate = ({
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white dark:bg-gray-800 rounded shadow-lg p-6 w-96 dark:text-white" onKeyDown={handleEnterKey} tabIndex={0}>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4">
+            <div className="bg-white dark:bg-gray-800 rounded shadow-lg p-6 w-full max-w-md dark:text-white" onKeyDown={handleEnterKey} tabIndex={0}>
                 <h2 className="text-xl font-bold mb-4">{title}</h2>
                 <div className="mb-4">{children}</div>
                 <div className="flex justify-end space-x-2">
